@@ -129,4 +129,5 @@ dmypy.json
 .pyre/
 
 # Salt file
-salt.txt
+salt-value
+encrypted-message
