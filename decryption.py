@@ -20,6 +20,9 @@ def decrypt(input_string, password_string):
     key = base64.urlsafe_b64encode(kdf.derive(password_bytes))
     key_file = Fernet(key)
     input_string_bytes = input_string.encode("utf-8")
-    original_bytes = key_file.decrypt(input_string_bytes)
-    original_string = original_bytes.decode("utf-8")
-    print(original_string)
+    try:
+        original_bytes = key_file.decrypt(input_string_bytes)
+        original_string = original_bytes.decode("utf-8")
+        print(original_string)
+    except Exception:
+        print('Invalid Password!')
